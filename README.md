@@ -1,1 +1,1 @@
-# Stock-Market-Charting
+Stock Market Charting Case Study
