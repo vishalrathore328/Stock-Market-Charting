@@ -13,23 +13,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.dto.CompanyDto;
 
-@FeignClient("company-ms")
+@FeignClient("company-service")
 public interface CompanyServiceClient {
-
-	@GetMapping("/allcompanies")
+	
+	@GetMapping("/company/companies")
 	public ResponseEntity<List<CompanyDto>> getAllCompanies();
 	
-	@GetMapping("/{companyId}")
-	public ResponseEntity<CompanyDto> getCompanyById(@PathVariable("companyId") Long companyId);
+	@GetMapping("/company/companies/{companyId}")
+	public ResponseEntity<CompanyDto> getCompanyByCompanyId(@PathVariable("companyId") String companyId);
 	
-	@PostMapping("/")
-	public ResponseEntity<CompanyDto> addCompany(@RequestBody CompanyDto company);
+	@PostMapping("/company/companies")
+	public ResponseEntity<CompanyDto> createCompany(@RequestBody CompanyDto company);
 	
-	@PutMapping("/{companyId}")
-	public ResponseEntity<CompanyDto> updateCompany(@RequestBody CompanyDto company, @PathVariable("companyId") Long companyId);
-	
-	@DeleteMapping("/{companyId}")
-	public ResponseEntity<CompanyDto> deleteCompany(@PathVariable("companyId") Long companyId);
-
+	@PutMapping("/company/companies/{companyId}")
+	public ResponseEntity<CompanyDto> updateCompany(@RequestBody CompanyDto company, @PathVariable("companyId") String companyId);
 
 }
