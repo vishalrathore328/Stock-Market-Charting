@@ -1,7 +1,23 @@
-package com.example.demo.dto;
+package com.example.demo.entity;
 
-public class UserDto {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class UserEntity {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	private String userId;
 	private String userName;
 	private String password;
@@ -10,6 +26,12 @@ public class UserDto {
 	private String email;
 	private String phoneNumber;
 	private boolean confirmed;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -58,4 +80,5 @@ public class UserDto {
 	public void setConfirmed(boolean confirmed) {
 		this.confirmed = confirmed;
 	}
+	
 }

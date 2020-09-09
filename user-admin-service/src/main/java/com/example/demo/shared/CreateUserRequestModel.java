@@ -1,21 +1,12 @@
-package com.example.demo.dto;
+package com.example.demo.shared;
 
-public class UserDto {
+public class CreateUserRequestModel {
 	
-	private String userId;
 	private String userName;
 	private String password;
-	private String encryptedPassword;
 	private String userType;
 	private String email;
 	private String phoneNumber;
-	private boolean confirmed;
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 	public String getUserName() {
 		return userName;
 	}
@@ -27,12 +18,6 @@ public class UserDto {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getEncryptedPassword() {
-		return encryptedPassword;
-	}
-	public void setEncryptedPassword(String encryptedPassword) {
-		this.encryptedPassword = encryptedPassword;
 	}
 	public String getUserType() {
 		return userType;
@@ -52,10 +37,6 @@ public class UserDto {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public boolean isConfirmed() {
-		return confirmed;
-	}
-	public void setConfirmed(boolean confirmed) {
-		this.confirmed = confirmed;
-	}
+	
+	
 }

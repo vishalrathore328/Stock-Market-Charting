@@ -1,11 +1,9 @@
-package com.example.demo.dto;
+package com.example.demo.shared;
 
-public class UserDto {
+public class UserResponseModel {
 	
 	private String userId;
 	private String userName;
-	private String password;
-	private String encryptedPassword;
 	private String userType;
 	private String email;
 	private String phoneNumber;
@@ -21,18 +19,6 @@ public class UserDto {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEncryptedPassword() {
-		return encryptedPassword;
-	}
-	public void setEncryptedPassword(String encryptedPassword) {
-		this.encryptedPassword = encryptedPassword;
 	}
 	public String getUserType() {
 		return userType;
@@ -58,4 +44,6 @@ public class UserDto {
 	public void setConfirmed(boolean confirmed) {
 		this.confirmed = confirmed;
 	}
+	
+	
 }
