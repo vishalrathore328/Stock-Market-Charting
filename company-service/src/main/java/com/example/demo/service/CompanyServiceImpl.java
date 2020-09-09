@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dao.CompanyDao;
+import com.example.demo.dao.IpoDetailsDao;
 import com.example.demo.dto.CompanyDto;
 import com.example.demo.dto.IpoDetailsDto;
 import com.example.demo.entity.Company;
+import com.example.demo.entity.IpoDetails;
 
 @Service
 public class CompanyServiceImpl implements CompanyService{
@@ -22,10 +24,13 @@ public class CompanyServiceImpl implements CompanyService{
 	private CompanyDao companyDao;
 	
 	private ModelMapper modelMapper;
+	
+	private IpoDetailsDao ipoDetailsDao;
 
-	public CompanyServiceImpl(CompanyDao companyDao, ModelMapper modelMapper) {
+	public CompanyServiceImpl(CompanyDao companyDao, ModelMapper modelMapper, IpoDetailsDao ipoDetailsDao) {
 		this.companyDao = companyDao;
 		this.modelMapper = modelMapper;
+		this.ipoDetailsDao = ipoDetailsDao;
 	}
 
 	@Override
@@ -44,9 +49,9 @@ public class CompanyServiceImpl implements CompanyService{
 		// TODO Auto-generated method stub
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Type listType = new TypeToken<List<IpoDetailsDto>>(){}.getType();
-        Optional<Company> company = companyDao.findByCompanyName(name);
-        if(company.isPresent()) {
-        	List<IpoDetailsDto> postDtoList = modelMapper.map(company.get().getIpoDetails(), listType);
+        List<IpoDetails> ipoDetails = ipoDetailsDao.findByCompanyName(name);
+        if(!ipoDetails.isEmpty()) {
+        	List<IpoDetailsDto> postDtoList = modelMapper.map(ipoDetails, listType);
         	return postDtoList;
         }
 		return null;
@@ -75,6 +80,15 @@ public class CompanyServiceImpl implements CompanyService{
         String str1[]=str.split("-");
         companyDto.setCompanyId(str1[0]);
         
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		companyDao.save(modelMapper.map(companyDto, Company.class));
+		return companyDto;
+	}
+
+	@Override
+	@Transactional
+	public CompanyDto updateCompany(String id, CompanyDto companyDto) {
+		// TODO Auto-generated method stub
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		companyDao.save(modelMapper.map(companyDto, Company.class));
 		return companyDto;

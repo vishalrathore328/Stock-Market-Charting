@@ -39,10 +39,7 @@ public class Company {
 	private String briefWriteUp;
 	
 	private String[] boardOfDirectors = new String[3];
-	
-	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name = "company_id",nullable = false)
-	private List<IpoDetails> ipoDetails;
+	private String[] listedInStockExchanges = new String[3];
 
 	public Integer getId() {
 		return id;
@@ -108,12 +105,12 @@ public class Company {
 		this.boardOfDirectors = boardOfDirectors;
 	}
 
-	public List<IpoDetails> getIpoDetails() {
-		return ipoDetails;
+	public String[] getListedInStockExchanges() {
+		return listedInStockExchanges;
 	}
 
-	public void setIpoDetails(List<IpoDetails> ipoDetails) {
-		this.ipoDetails = ipoDetails;
+	public void setListedInStockExchanges(String[] listedInStockExchanges) {
+		this.listedInStockExchanges = listedInStockExchanges;
 	}
 	
 	

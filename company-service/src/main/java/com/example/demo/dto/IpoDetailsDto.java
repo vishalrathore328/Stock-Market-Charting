@@ -5,6 +5,7 @@ import java.sql.Time;
 
 public class IpoDetailsDto {
 	
+	private String companyName;
 	private String stockExchange;
 	private float pricePerShare;
 	private Integer totalShares;
@@ -16,6 +17,13 @@ public class IpoDetailsDto {
 	}
 	public void setStockExchange(String stockExchange) {
 		this.stockExchange = stockExchange;
+	}
+	
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	public float getPricePerShare() {
 		return pricePerShare;

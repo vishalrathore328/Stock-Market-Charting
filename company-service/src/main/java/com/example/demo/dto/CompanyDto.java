@@ -20,7 +20,7 @@ public class CompanyDto {
 	private String sector;
 	private String briefWriteUp;
 	private String[] boardOfDirectors = new String[3];
-	private List<IpoDetails> ipoDetails;
+	private String[] listedInStockExchanges = new String[3];
 	
 	public String getCompanyId() {
 		return companyId;
@@ -64,11 +64,12 @@ public class CompanyDto {
 	public void setBoardOfDirectors(String[] boardOfDirectors) {
 		this.boardOfDirectors = boardOfDirectors;
 	}
-	public List<IpoDetails> getIpoDetails() {
-		return ipoDetails;
+	public String[] getListedInStockExchanges() {
+		return listedInStockExchanges;
 	}
-	public void setIpoDetails(List<IpoDetails> ipoDetails) {
-		this.ipoDetails = ipoDetails;
+	public void setListedInStockExchanges(String[] listedInStockExchanges) {
+		this.listedInStockExchanges = listedInStockExchanges;
 	}
+	
 	
 }

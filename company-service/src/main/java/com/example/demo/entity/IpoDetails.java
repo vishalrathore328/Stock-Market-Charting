@@ -21,6 +21,7 @@ public class IpoDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer ipoDetailsId;
+	private String companyName;
 	private String stockExchange;
 	private float pricePerShare;
 	private Integer totalShares;
@@ -32,6 +33,12 @@ public class IpoDetails {
 	}
 	public void setIpoDetailsId(Integer ipoDetailsId) {
 		this.ipoDetailsId = ipoDetailsId;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	public String getStockExchange() {
 		return stockExchange;

@@ -13,4 +13,5 @@ public interface CompanyService {
 	public CompanyDto findCompanyById(String id);
 	public CompanyDto createCompany(CompanyDto companyDto);
 	public List<IpoDetailsDto> findByCompanyName(String name);
+	public CompanyDto updateCompany(String id, CompanyDto companyDto);
 }
